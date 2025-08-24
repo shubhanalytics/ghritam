@@ -10,3 +10,13 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     alert("Invalid credentials. Try ghritam / 1234");
   }
 });
+function validateLogin() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (username === "testuser" && password === "12345") {
+    window.location.href = "home.html"; // or whatever your home page is
+  } else {
+    alert("Invalid credentials");
+  }
+}
