@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+}
+#product-detail {
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid #ccc;
+}
+button {
+  background: #ffcc00;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}

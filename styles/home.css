@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #fdf6e3;
+}
+#product-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.product-card {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  width: 200px;
+  text-align: center;
+}
+button {
+  background: #ffcc00;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
