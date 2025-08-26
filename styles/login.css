@@ -1,10 +1,10 @@
 body {
   font-family: Arial, sans-serif;
-  background: #fff8dc;
+  background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 .login-box {
   background: #fff;
@@ -21,4 +21,25 @@ button {
   background: #ffcc00;
   border: none;
   cursor: pointer;
+}
+/* ...existing code... */
+.login-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+.login-links a {
+  color: #ff9900;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-size: 0.95rem;
+}
+.login-links a:hover {
+  text-decoration: underline;
+}
+.tagline {
+  text-align: center;
+  color: #b36b00;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
 }
