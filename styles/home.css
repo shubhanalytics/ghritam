@@ -1,23 +1,82 @@
 body {
-  font-family: sans-serif;
-  padding: 2rem;
-  background: #fdf6e3;
+  font-family: Arial, sans-serif;
+  background: url('images/dairy-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-#product-list {
+.overlay {
+  background: rgba(255,255,255,0.85);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+.header {
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem 1rem 3rem;
+}
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+.cart-icon img {
+  width: 36px;
+  height: 36px;
+}
+.products {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 .product-card {
-  background: #fff;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  width: 200px;
+  background: #fffbe7;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  width: 240px;
+  padding: 1.5rem;
   text-align: center;
+  transition: box-shadow 0.2s;
 }
-button {
+.product-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.product-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.product-card h3 {
+  margin: 0.5rem 0;
+  color: #b36b00;
+}
+.product-card p {
+  color: #555;
+  font-size: 1rem;
+}
+.product-card .price {
+  color: #ff9900;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.product-card button {
   background: #ffcc00;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: background 0.2s;
+}
+.product-card button:hover {
+  background: #ffa751;
 }

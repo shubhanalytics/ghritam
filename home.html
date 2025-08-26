@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ghritam Products</title>
-  <link rel="stylesheet" href="styles/home.css" />
+  <meta charset="UTF-8">
+  <title>Dairy Products Home</title>
+  <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
-  <h1>Welcome, <span id="userName"></span></h1>
-  <div id="product-list"></div>
-  <script src="scripts/home.js"></script>
+  <div class="overlay">
+    <div class="header">
+      <h1>Fresh Dairy Products</h1>
+      <div class="cart-icon" onclick="window.location.href='cart.html'">
+        <img src="product-images/cart.svg" alt="Cart">
+      </div>
+    </div>
+    <div class="products">
+      <div class="product-card">
+        <img src="product-images/milk.png" alt="Milk">
+        <h3>Fresh Milk</h3>
+        <p>Pure, farm-fresh milk delivered daily.</p>
+        <div class="price">₹50 / litre</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="product-images/curd.png" alt="Curd">
+        <h3>Curd</h3>
+        <p>Thick and creamy homemade curd.</p>
+        <div class="price">₹40 / 500g</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="product-images/ghee.png" alt="Ghee">
+        <h3>Desi Ghee</h3>
+        <p>Traditional clarified butter, rich in flavor.</p>
+        <div class="price">₹500 / 1kg</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="product-images/paneer.png" alt="Paneer">
+        <h3>Paneer</h3>
+        <p>Soft, fresh paneer for your recipes.</p>
+        <div class="price">₹300 / 1kg</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="product-images/butter.png" alt="Butter">
+        <h3>Butter</h3>
+        <p>Creamy, homemade butter for your toast.</p>
+        <div class="price">₹250 / 500g</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="product-images/cheese.png" alt="Cheese">
+        <h3>Cheese</h3>
+        <p>Delicious, natural cheese blocks.</p>
+        <div class="price">₹400 / 500g</div>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
