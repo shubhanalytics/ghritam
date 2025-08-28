@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #fffbe7 0%, #ffe259 50%, #ffa751 100%), url('../assets/product-images/dairy-bg.jpg') no-repeat center center fixed;
+  background: linear-gradient(120deg, #fffbe7 0%, #ffe259 50%, #ffa751 100%), url('/assets/product-images/dairy-bg.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   margin: 0;
