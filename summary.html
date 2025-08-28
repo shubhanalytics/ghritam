@@ -6,8 +6,22 @@
   <link rel="stylesheet" href="styles/summary.css" />
 </head>
 <body>
-  <h2>Order Summary</h2>
-  <div id="summary"></div>
+  <div class="summary-container">
+    <h2 class="summary-title">Order Summary</h2>
+
+    <div id="summary-details" class="summary-details"></div>
+
+    <div class="payment-section">
+      <h3>Select Payment Method</h3>
+      <form id="payment-form">
+        <label><input type="radio" name="payment" value="wallet" required> Wallet</label><br>
+        <label><input type="radio" name="payment" value="upi"> UPI</label><br>
+        <label><input type="radio" name="payment" value="card"> Card</label><br>
+        <button type="submit" class="pay-btn">Pay Now</button>
+      </form>
+    </div>
+  </div>
+
   <script src="scripts/summary.js"></script>
 </body>
 </html>
