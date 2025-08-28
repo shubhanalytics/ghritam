@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>Thank You for Trusting Us!</h1>
+    <p id="order-id"></p>
+    <p id="delivery-date"></p>
+    <button onclick="goHome()">Return to Home</button>
+  </div>
+
+  <script>
+    // Generate random order number
+    const orderId = 'GH' + Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('order-id').textContent = `Your Order No: ${orderId}`;
+
+    // Generate random future delivery date (2–7 days from now)
+    const today = new Date();
+    const futureDays = Math.floor(Math.random() * 6) + 2;
+    const deliveryDate = new Date(today.setDate(today.getDate() + futureDays));
+    const formattedDate = deliveryDate.toLocaleDateString('en-IN', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+    document.getElementById('delivery-date').textContent = `Your order will be delivered on ${formattedDate}.`;
+
+    // Navigation to home
+    function goHome() {
+      window.location.href = 'home.html';
+    }
+  </script>
+</body>
+</html>

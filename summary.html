@@ -2,26 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order Summary</title>
-  <link rel="stylesheet" href="styles/summary.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="summary-container">
-    <h2 class="summary-title">Order Summary</h2>
+    <h1>Order Summary</h1>
+    <p>Desi Ghee Price: ₹500 × 2 = ₹1000</p>
+    <h3>Total Amount: ₹1000</h3>
 
-    <div id="summary-details" class="summary-details"></div>
+    <h3>Select Payment Method</h3>
+    <label><input type="radio" name="payment" value="Wallet" checked> Wallet</label><br>
+    <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
+    <label><input type="radio" name="payment" value="Card"> Card</label><br><br>
 
-    <div class="payment-section">
-      <h3>Select Payment Method</h3>
-      <form id="payment-form">
-        <label><input type="radio" name="payment" value="wallet" required> Wallet</label><br>
-        <label><input type="radio" name="payment" value="upi"> UPI</label><br>
-        <label><input type="radio" name="payment" value="card"> Card</label><br>
-        <button type="submit" class="pay-btn">Pay Now</button>
-      </form>
-    </div>
+    <button onclick="handlePayment()">Pay Now</button>
   </div>
 
-  <script src="scripts/summary.js"></script>
+  <script>
+    function handlePayment() {
+      // Optional: capture selected payment method
+      const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
+      console.log("Payment Method Selected:", selectedMethod);
+
+      // Navigate to thank you page
+      window.location.href = 'thankyou.html';
+    }
+  </script>
 </body>
 </html>
