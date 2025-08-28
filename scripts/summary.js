@@ -26,12 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const method = document.querySelector('input[name="payment"]:checked').value;
     alert(`Payment method selected: ${method}\nProceeding with ₹${total}`);
-    // Optional: Redirect to thank-you page or simulate payment
-    // window.location.href = 'thank-you.html';
+    window.location.href = 'thankyou.html';
   });
-});
-document.getElementById("payBtn").addEventListener("click", function () {
-  const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
-  console.log("Payment Method Selected:", selectedMethod);
-  window.location.href = "thankyou.html";
 });

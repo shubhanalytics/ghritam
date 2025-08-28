@@ -4,28 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order Summary</title>
-
-  <!-- Global Styles -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Page-Specific Styles -->
   <link rel="stylesheet" href="summary.css" />
 </head>
 <body>
   <div class="summary-container">
     <h1>Order Summary</h1>
-    <p>Desi Ghee Price: ₹500 × 2 = ₹1000</p>
-    <h3>Total Amount: ₹1000</h3>
+    <div id="summary-details"></div>
 
-    <h3>Select Payment Method</h3>
-    <label><input type="radio" name="payment" value="Wallet" checked> Wallet</label><br>
-    <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
-    <label><input type="radio" name="payment" value="Card"> Card</label><br><br>
-
-    <button id="payBtn">Pay Now</button>
+    <form id="payment-form">
+      <h3>Select Payment Method</h3>
+      <label><input type="radio" name="payment" value="Wallet" checked> Wallet</label><br>
+      <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
+      <label><input type="radio" name="payment" value="Card"> Card</label><br><br>
+      <button id="payBtn" type="submit">Pay Now</button>
+    </form>
   </div>
 
-  <!-- Page-Specific Script -->
   <script src="summary.js"></script>
 </body>
 </html>
