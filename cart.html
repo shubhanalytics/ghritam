@@ -1,14 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Your Cart</title>
-  <link rel="stylesheet" href="styles/cart.css" />
+  <link rel="stylesheet" href="styles/home.css">
+  <style>
+    .cart-container {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: #fffbe7;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem;
+    }
+    .cart-title {
+      text-align: center;
+      color: #b36b00;
+      margin-bottom: 2rem;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ffe259;
+      padding: 1rem 0;
+    }
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-right: 1.5rem;
+      background: #fff;
+      border: 1px solid #ffe259;
+    }
+    .cart-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .cart-name {
+      font-weight: bold;
+      color: #b36b00;
+      font-size: 1.1rem;
+    }
+    .cart-price, .cart-qty {
+      color: #555;
+      font-size: 1rem;
+    }
+    .remove-btn {
+      background: #ff6666;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+      margin-left: 1rem;
+    }
+    .remove-btn:hover {
+      background: #ff3333;
+    }
+    .cart-total {
+      text-align: right;
+      font-size: 1.2rem;
+      color: #ff9900;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 0 auto;
+      background: #ffcc00;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover {
+      background: #ffa751;
+    }
+    .empty-cart {
+      text-align: center;
+      color: #b36b00;
+      font-size: 1.2rem;
+      margin: 2rem 0;
+    }
+  </style>
 </head>
 <body>
-  <h2>Cart Items</h2>
-  <div id="cart-items"></div>
-  <button onclick="checkout()">Proceed to Checkout</button>
-  <script src="scripts/cart.js"></script>
+  <div class="cart-container">
+    <h2 class="cart-title">Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total"></div>
+    <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    <div class="empty-cart" id="empty-cart" style="display:none;">Your cart is empty.</div>
+  </div>
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsDiv = document.getElementById('cart-items');
+      const cartTotalDiv = document.getElementById('cart-total');
+      const emptyCartDiv = document.getElementById('empty-cart');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      cartItemsDiv.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartTotalDiv.style.display = 'none';
+        checkoutBtn.style.display = 'none';
+        emptyCartDiv.style.display = 'block';
+        return;
+      } else {
+        cartTotalDiv.style.display = '';
+        checkoutBtn.style.display = '';
+        emptyCartDiv.style.display = 'none';
+      }
+
+      cart.forEach((item, idx) => {
+        total += item.price * item.qty;
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="cart-details">
+            <span class="cart-name">${item.name}</span>
+            <span class="cart-price">Price: ₹${item.price}</span>
+            <span class="cart-qty">Quantity: ${item.qty}</span>
+          </div>
+          <button class="remove-btn" data-idx="${idx}">Remove</button>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+      });
+
+      cartTotalDiv.textContent = `Total: ₹${total}`;
+      // Attach remove event
+      document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.onclick = function() {
+          const idx = parseInt(this.getAttribute('data-idx'));
+          cart.splice(idx, 1);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          renderCart();
+        };
+      });
+    }
+
+    document.getElementById('checkout-btn').onclick = function() {
+      alert('Proceeding to checkout...');
+      // You can redirect to a checkout page here if you have one
+      // window.location.href = 'checkout.html';
+    };
+
+    renderCart();
+  </script>
 </body>
 </html>
