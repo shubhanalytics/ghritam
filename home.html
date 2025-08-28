@@ -14,49 +14,70 @@
       </div>
     </div>
     <div class="products">
-      <div class="product-card">
+      <div class="product-card" data-name="Fresh Milk" data-price="50" data-img="assets/product-images/milk.png">
         <img src="assets/product-images/milk.png" alt="Milk">
         <h3>Fresh Milk</h3>
         <p>Pure, farm-fresh milk delivered daily.</p>
         <div class="price">₹50 / litre</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-name="Curd" data-price="40" data-img="assets/product-images/curd.png">
         <img src="assets/product-images/curd.png" alt="Curd">
         <h3>Curd</h3>
         <p>Thick and creamy homemade curd.</p>
         <div class="price">₹40 / 500g</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-name="Desi Ghee" data-price="500" data-img="assets/product-images/ghee.png">
         <img src="assets/product-images/ghee.png" alt="Ghee">
         <h3>Desi Ghee</h3>
         <p>Traditional clarified butter, rich in flavor.</p>
         <div class="price">₹500 / 1kg</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-name="Paneer" data-price="300" data-img="assets/product-images/paneer.png">
         <img src="assets/product-images/paneer.png" alt="Paneer">
         <h3>Paneer</h3>
         <p>Soft, fresh paneer for your recipes.</p>
         <div class="price">₹300 / 1kg</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-name="Butter" data-price="250" data-img="assets/product-images/butter.png">
         <img src="assets/product-images/butter.png" alt="Butter">
         <h3>Butter</h3>
         <p>Creamy, homemade butter for your toast.</p>
         <div class="price">₹250 / 500g</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-name="Cheese" data-price="400" data-img="assets/product-images/cheese.png">
         <img src="assets/product-images/cheese.png" alt="Cheese">
         <h3>Cheese</h3>
         <p>Delicious, natural cheese blocks.</p>
         <div class="price">₹400 / 500g</div>
-        <button>Add to Cart</button>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
   </div>
+  <script>
+    // Add to Cart functionality
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.product-card');
+        const name = card.getAttribute('data-name');
+        const price = parseInt(card.getAttribute('data-price'));
+        const img = card.getAttribute('data-img');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ name, price, img, qty: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        this.textContent = "Added!";
+        setTimeout(() => { this.textContent = "Add to Cart"; }, 1000);
+      });
+    });
+  </script>
 </body>
 </html>
