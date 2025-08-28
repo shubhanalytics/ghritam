@@ -30,3 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // window.location.href = 'thank-you.html';
   });
 });
+document.getElementById("payBtn").addEventListener("click", function () {
+  const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
+  console.log("Payment Method Selected:", selectedMethod);
+  window.location.href = "thankyou.html";
+});

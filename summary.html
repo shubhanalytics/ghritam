@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Order Summary</title>
+
+  <!-- Global Styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="summary.css" />
 </head>
 <body>
   <div class="summary-container">
@@ -17,18 +22,10 @@
     <label><input type="radio" name="payment" value="UPI"> UPI</label><br>
     <label><input type="radio" name="payment" value="Card"> Card</label><br><br>
 
-    <button onclick="handlePayment()">Pay Now</button>
+    <button id="payBtn">Pay Now</button>
   </div>
 
-  <script>
-    function handlePayment() {
-      // Optional: capture selected payment method
-      const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
-      console.log("Payment Method Selected:", selectedMethod);
-
-      // Navigate to thank you page
-      window.location.href = 'thankyou.html';
-    }
-  </script>
+  <!-- Page-Specific Script -->
+  <script src="summary.js"></script>
 </body>
 </html>
